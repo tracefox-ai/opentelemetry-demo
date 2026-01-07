@@ -1,0 +1,20 @@
+exporters:
+  otlp/hyperdx:
+    endpoint: "host.docker.internal:4317"
+    headers:
+      Authorization: Bearer hdx_ingest_8l-Eo8alAHLJzaMoR2Hvi2t9ZbWwnYcPIOL_r6jNof8
+
+    tls:
+      insecure: true
+
+service:
+  pipelines:
+    traces:
+      exporters: [otlp, debug, spanmetrics, otlp/hyperdx]
+    metrics:
+      exporters: [otlphttp/prometheus, debug, otlp/hyperdx]
+    logs:
+      exporters: [opensearch, debug, otlp/hyperdx]
+
+
+# docker compose -f docker-compose.yml -f docker-compose.hyperdx.yml up -d
