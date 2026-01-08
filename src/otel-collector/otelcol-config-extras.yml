@@ -1,5 +1,6 @@
 exporters:
   otlp/hyperdx:
+    # endpoint: "demo.tracefox.ai:4317"
     endpoint: "host.docker.internal:4317"
     headers:
       Authorization: Bearer hdx_ingest_8l-Eo8alAHLJzaMoR2Hvi2t9ZbWwnYcPIOL_r6jNof8
